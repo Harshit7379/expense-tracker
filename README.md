@@ -31,7 +31,7 @@ Full-stack expense tracker application with a Spring Boot backend and a plain HT
 
 ## Backend Configuration
 
-The backend uses the following default database configuration from [src/main/resources/application.properties](/C:/Users/pande/Downloads/frontend/src/main/resources/application.properties:1):
+The backend uses the following default database configuration from [src/main/resources/application.properties](src/main/resources/application.properties):
 
 - Database URL: `jdbc:mysql://localhost:3306/expense_tracker`
 - Username: `root`
@@ -64,7 +64,7 @@ The backend will start on `http://localhost:8080`.
 
 ## Run the Frontend
 
-Open [frontend/index.html](/C:/Users/pande/Downloads/frontend/frontend/index.html:1) in your browser.
+Open [frontend/index.html](frontend/index.html) in your browser.
 
 The frontend is configured to call:
 
