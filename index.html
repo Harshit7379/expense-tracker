@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="loadingOverlay" class="loading-overlay hidden">
+        <div class="spinner"></div>
+        <p>Working on it...</p>
+    </div>
+
+    <main class="page-shell">
+        <section class="hero">
+            <div>
+                <p class="eyebrow">Personal Finance</p>
+                <h1>Expense Tracker</h1>
+                <p class="hero-copy">Track spending, filter expenses, and view your monthly summary from one clean dashboard.</p>
+            </div>
+            <button id="logoutBtn" class="ghost-btn hidden" type="button">Logout</button>
+        </section>
+
+        <section id="authSection" class="auth-grid">
+            <form id="registerForm" class="card auth-card">
+                <h2>Create Account</h2>
+                <p class="muted">Register first if you do not already have an account.</p>
+
+                <label for="registerName">Name</label>
+                <input id="registerName" type="text" placeholder="Type your Name" autocomplete="name">
+
+                <label for="registerEmail">Email</label>
+                <input id="registerEmail" type="email" placeholder="Type your Email" autocomplete="email">
+
+                <label for="registerPassword">Password</label>
+                <input id="registerPassword" type="password" placeholder="Type your Password" autocomplete="new-password">
+
+                <button type="submit">Register</button>
+            </form>
+
+            <form id="loginForm" class="card auth-card highlight-card">
+                <h2>Login</h2>
+                <p class="muted">Login stores your JWT token safely in localStorage.</p>
+
+                <label for="loginEmail">Email</label>
+                <input id="loginEmail" type="email" placeholder="Type your Email" autocomplete="email">
+
+                <label for="loginPassword">Password</label>
+                <input id="loginPassword" type="password" placeholder="Type your Password" autocomplete="current-password">
+
+                <button type="submit">Login</button>
+                <p id="authMessage" class="message"></p>
+            </form>
+        </section>
+
+        <section id="dashboardSection" class="dashboard hidden">
+            <section class="stats-grid">
+                <article class="stat-card">
+                    <span>Total Expense</span>
+                    <strong id="totalAmount">Rs 0</strong>
+                </article>
+                <article class="stat-card">
+                    <span>Total Items</span>
+                    <strong id="expenseCount">0</strong>
+                </article>
+                <article class="stat-card">
+                    <span>Visible Items</span>
+                    <strong id="visibleCount">0</strong>
+                </article>
+            </section>
+
+            <section class="dashboard-grid">
+                <form id="expenseForm" class="card expense-form">
+                    <h2 id="formTitle">Add Expense</h2>
+                    <input id="expenseId" type="hidden">
+
+                    <label for="title">Title</label>
+                    <input id="title" type="text" placeholder="Type Expense Title">
+
+                    <label for="amount">Amount</label>
+                    <input id="amount" type="number" min="0" step="0.01" placeholder="Type Amount">
+
+                    <label for="category">Category</label>
+                    <input id="category" type="text" placeholder="Type Category">
+
+                    <label for="date">Date</label>
+                    <input id="date" type="date">
+
+                    <div class="button-row">
+                        <button id="submitExpenseBtn" type="submit">Add Expense</button>
+                        <button id="cancelEditBtn" class="ghost-btn hidden" type="button">Cancel Edit</button>
+                    </div>
+
+                    <p id="expenseMessage" class="message"></p>
+                </form>
+
+                <article class="card chart-card">
+                    <div class="section-heading">
+                        <div>
+                            <h2>Monthly Summary</h2>
+                            <p class="muted">Simple chart based on loaded expenses.</p>
+                        </div>
+                    </div>
+                    <canvas id="monthlyChart" width="520" height="260"></canvas>
+                </article>
+            </section>
+
+            <section class="card table-card">
+                <div class="section-heading table-heading">
+                    <div>
+                        <h2>Expense List</h2>
+                        <p class="muted">Search, filter, refresh, edit, or delete expenses.</p>
+                    </div>
+                    <button id="refreshBtn" class="ghost-btn" type="button">Refresh</button>
+                </div>
+
+                <div class="filters">
+                    <input id="searchInput" type="search" placeholder="Search by title">
+                    <select id="categoryFilter">
+                        <option value="">All categories</option>
+                    </select>
+                </div>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Amount</th>
+                                <th>Category</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="expenseTableBody"></tbody>
+                    </table>
+                </div>
+
+                <p id="emptyState" class="empty-state hidden">No expenses found</p>
+            </section>
+        </section>
+    </main>
+
+    <script src="auth.js"></script>
+    <script src="expense.js"></script>
+</body>
+</html>

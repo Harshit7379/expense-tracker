@@ -1,0 +1,358 @@
+:root {
+    --bg: #f4efe2;
+    --surface: #fffaf0;
+    --surface-strong: #fff5dc;
+    --ink: #262018;
+    --muted: #746958;
+    --line: #ded0b9;
+    --brand: #176b56;
+    --brand-dark: #104d3e;
+    --accent: #d9902f;
+    --danger: #b42318;
+    --success: #1f7a3f;
+    --shadow: 0 24px 70px rgba(53, 39, 20, 0.14);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    color: var(--ink);
+    font-family: Georgia, "Times New Roman", serif;
+    background:
+        radial-gradient(circle at 8% 5%, rgba(23, 107, 86, 0.18), transparent 30rem),
+        radial-gradient(circle at 92% 12%, rgba(217, 144, 47, 0.18), transparent 26rem),
+        linear-gradient(135deg, #fbf4e4 0%, var(--bg) 52%, #e7f0ea 100%);
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button {
+    border: 0;
+    border-radius: 999px;
+    padding: 13px 18px;
+    color: white;
+    background: var(--brand);
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
+}
+
+button:hover {
+    background: var(--brand-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 12px 24px rgba(23, 107, 86, 0.18);
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
+    transform: none;
+    box-shadow: none;
+}
+
+input,
+select {
+    width: 100%;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 13px 14px;
+    color: var(--ink);
+    background: rgba(255, 253, 247, 0.92);
+}
+
+input:focus,
+select:focus {
+    outline: 3px solid rgba(23, 107, 86, 0.16);
+    border-color: var(--brand);
+}
+
+label {
+    display: block;
+    margin: 14px 0 7px;
+    color: var(--muted);
+    font-weight: 700;
+}
+
+h1,
+h2,
+p {
+    margin-top: 0;
+}
+
+h1 {
+    margin-bottom: 10px;
+    font-size: clamp(2.6rem, 7vw, 5.8rem);
+    line-height: 0.9;
+    letter-spacing: -0.07em;
+}
+
+h2 {
+    margin-bottom: 8px;
+    font-size: 1.45rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 14px 12px;
+    border-bottom: 1px solid var(--line);
+    text-align: left;
+    vertical-align: middle;
+}
+
+th {
+    color: var(--muted);
+    background: rgba(23, 107, 86, 0.08);
+    font-size: 0.92rem;
+}
+
+.page-shell {
+    width: min(1180px, calc(100% - 28px));
+    margin: 0 auto;
+    padding: 30px 0 46px;
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 18px;
+    margin-bottom: 24px;
+}
+
+.eyebrow {
+    margin-bottom: 8px;
+    color: var(--accent);
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.hero-copy,
+.muted {
+    color: var(--muted);
+}
+
+.hero-copy {
+    max-width: 560px;
+    margin-bottom: 0;
+    font-size: 1.06rem;
+}
+
+.card,
+.stat-card {
+    border: 1px solid var(--line);
+    border-radius: 28px;
+    background: rgba(255, 250, 240, 0.9);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(12px);
+}
+
+.card {
+    padding: 24px;
+}
+
+.auth-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.highlight-card {
+    background:
+        linear-gradient(145deg, rgba(23, 107, 86, 0.08), transparent),
+        rgba(255, 250, 240, 0.94);
+}
+
+.dashboard {
+    display: grid;
+    gap: 18px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.stat-card {
+    padding: 20px;
+}
+
+.stat-card span {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--muted);
+    font-weight: 700;
+}
+
+.stat-card strong {
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    line-height: 1;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: minmax(280px, 390px) 1fr;
+    gap: 18px;
+}
+
+.section-heading,
+.table-heading,
+.button-row,
+.filters {
+    display: flex;
+    gap: 12px;
+}
+
+.section-heading,
+.table-heading {
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.button-row {
+    align-items: center;
+}
+
+.button-row button {
+    flex: 1;
+}
+
+.filters {
+    margin-bottom: 14px;
+}
+
+.ghost-btn {
+    width: auto;
+    border: 1px solid var(--brand);
+    color: var(--brand);
+    background: transparent;
+}
+
+.ghost-btn:hover {
+    color: white;
+}
+
+.message {
+    min-height: 22px;
+    margin: 14px 0 0;
+    font-weight: 800;
+}
+
+.message.error {
+    color: var(--danger);
+}
+
+.message.success {
+    color: var(--success);
+}
+
+.row-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.row-actions button {
+    padding: 9px 12px;
+    font-size: 0.9rem;
+}
+
+.danger-btn {
+    background: var(--danger);
+}
+
+.danger-btn:hover {
+    background: #7f1d1d;
+}
+
+.table-wrap {
+    overflow-x: auto;
+}
+
+.empty-state {
+    margin: 20px 0 0;
+    padding: 22px;
+    border: 1px dashed var(--line);
+    border-radius: 18px;
+    color: var(--muted);
+    text-align: center;
+    background: rgba(255, 255, 255, 0.35);
+}
+
+.loading-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    display: grid;
+    place-content: center;
+    gap: 12px;
+    color: var(--ink);
+    background: rgba(244, 239, 226, 0.72);
+    backdrop-filter: blur(6px);
+}
+
+.spinner {
+    width: 44px;
+    height: 44px;
+    margin: 0 auto;
+    border: 4px solid rgba(23, 107, 86, 0.18);
+    border-top-color: var(--brand);
+    border-radius: 50%;
+    animation: spin 800ms linear infinite;
+}
+
+.hidden {
+    display: none !important;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 860px) {
+    .hero,
+    .section-heading,
+    .table-heading,
+    .button-row,
+    .filters {
+        display: block;
+    }
+
+    .auth-grid,
+    .dashboard-grid,
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card,
+    .stat-card {
+        border-radius: 22px;
+    }
+
+    button,
+    .ghost-btn {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    th,
+    td {
+        white-space: nowrap;
+    }
+}
