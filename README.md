@@ -1,29 +1,75 @@
-# Expense Tracker (Full Stack)
+# Expense Tracker
 
-## 📌 Description
-A full-stack expense tracker application built using Spring Boot and JavaScript. It allows users to register, login, and manage daily expenses securely using JWT authentication.
+Full-stack expense tracker application with a Spring Boot backend and a plain HTML/CSS/JavaScript frontend. Users can register, log in with JWT-based authentication, and manage daily expenses.
 
-## 🚀 Features
-- User Registration & Login
-- JWT Authentication
-- Add / View / Delete Expenses
-- Secure REST APIs
+## Features
 
-## 🛠️ Tech Stack
-- Backend: Spring Boot, Java
-- Security: Spring Security, JWT
+- User registration and login
+- JWT authentication
+- Add, view, and delete expenses
+- REST API backend
+- Simple browser-based frontend
+
+## Tech Stack
+
+- Backend: Java, Spring Boot, Spring Security
 - Frontend: HTML, CSS, JavaScript
-- Database: MySQL / H2
+- Database: MySQL
+- Auth: JWT
 
-## ▶️ How to Run
+## Repository Structure
 
-### Backend
-cd expensetracker
+- `src/` - Spring Boot backend source code
+- `frontend/` - frontend files (`index.html`, `style.css`, `auth.js`, `expense.js`)
+- `pom.xml` - Maven project configuration
+
+## Prerequisites
+
+- Java installed
+- Maven installed, or use `mvnw` / `mvnw.cmd`
+- MySQL running locally
+
+## Backend Configuration
+
+The backend uses the following default database configuration from [src/main/resources/application.properties](/C:/Users/pande/Downloads/frontend/src/main/resources/application.properties:1):
+
+- Database URL: `jdbc:mysql://localhost:3306/expense_tracker`
+- Username: `root`
+- Password env var: `DB_PASSWORD`
+- Server port: `8080`
+
+Set the database password before starting the backend.
+
+PowerShell:
+
+```powershell
+$env:DB_PASSWORD="your-mysql-password"
+```
+
+## Run the Backend
+
+From the repository root:
+
+```powershell
+.\mvnw.cmd spring-boot:run
+```
+
+Or, if Maven is installed globally:
+
+```powershell
 mvn spring-boot:run
+```
 
-### Frontend
-Open index.html in browser
+The backend will start on `http://localhost:8080`.
 
-## 📂 Project Structure
-- src/ → backend code
-- frontend/ → UI code
+## Run the Frontend
+
+Open [frontend/index.html](/C:/Users/pande/Downloads/frontend/frontend/index.html:1) in your browser.
+
+The frontend is configured to call:
+
+```text
+http://localhost:8080
+```
+
+So the backend should be running before using the UI.
