@@ -3,6 +3,8 @@ target/
 .mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+*.class
+out/
 
 ### STS ###
 .apt_generated
@@ -34,3 +36,16 @@ build/
 
 ### Local logs ###
 *.log
+
+### Environment files ###
+.env
+.env.*
+!.env.example
+
+### Local database files ###
+*.mv.db
+*.trace.db
+
+### OS files ###
+.DS_Store
+Thumbs.db
